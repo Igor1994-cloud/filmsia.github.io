@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b12">
+  <meta name="description" content="IAFlix — descubra vídeos criados com inteligência artificial.">
+  <title>IAFlix — Vídeos com IA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-mode">
+
+  <section class="auth-shell" id="authShell">
+    <div class="auth-top"><a class="brand" href="#"><span class="brand-mark">✦</span> IA<span>Flix</span></a><span class="auth-top-note">SEU CINEMA DE INTELIGÊNCIA ARTIFICIAL</span></div>
+    <div class="auth-layout">
+      <div class="auth-card">
+        <div class="auth-heading"><span class="eyebrow">BEM-VINDO AO IAFLIX</span><h1 id="authTitle">Entre na sua <em>conta</em></h1><p id="authSubtitle">Acesse seus vídeos e continue de onde parou.</p></div>
+        <form id="loginForm" class="auth-form">
+          <label>E-mail<input id="loginEmail" type="email" autocomplete="email" placeholder="voce@email.com" required></label>
+          <label>Senha<input id="loginPassword" type="password" autocomplete="current-password" placeholder="Sua senha" required></label>
+          <button class="primary-btn auth-submit" type="submit">Entrar <span>→</span></button>
+          <p class="auth-message" id="loginMessage" aria-live="polite"></p>
+        </form>
+        <form id="registerForm" class="auth-form" hidden>
+          <label>Nome completo<input id="registerName" type="text" maxlength="90" autocomplete="name" placeholder="Seu nome completo" required></label>
+          <label>E-mail<input id="registerEmail" type="email" autocomplete="email" placeholder="voce@email.com" required></label>
+          <label>Senha<input id="registerPassword" type="password" minlength="6" autocomplete="new-password" placeholder="Mínimo de 6 caracteres" required></label>
+          <div class="form-two"><label>País<input id="registerCountry" type="text" autocomplete="country-name" placeholder="Brasil" required></label><label>Cidade<input id="registerCity" type="text" autocomplete="address-level2" placeholder="Sua cidade" required></label></div>
+          <div class="form-two"><label>Bairro<input id="registerNeighborhood" type="text" placeholder="Seu bairro" required></label><label>Número<input id="registerNumber" type="text" inputmode="text" placeholder="Nº da residência" required></label></div>
+          <button class="primary-btn auth-submit" type="submit">Criar conta e continuar <span>→</span></button>
+          <p class="auth-message" id="registerMessage" aria-live="polite"></p>
+        </form>
+        <div class="auth-switch"><span id="switchText">Ainda não tem uma conta?</span> <button id="switchAuth" type="button">Cadastre-se</button></div>
+        <p class="auth-legal">Protótipo demonstrativo: os dados ficam somente neste navegador. Para uso real, conecte um servidor seguro.</p>
+      </div>
+      <aside class="plans-panel">
+        <span class="eyebrow">ESCOLHA SEU ACESSO</span><h2>Planos e <em>promoções</em></h2><p class="plans-intro">Escolha um plano para liberar sua experiência IAFlix.</p>
+        <div class="plans-grid">
+          <article class="plan-card"><span class="plan-duration">30 DIAS</span><h3>Mensal</h3><div class="plan-price">R$ 10<span>,00</span></div><p>Acesso por 1 mês</p><button class="plan-button" data-plan="mensal">Escolher plano</button></article>
+          <article class="plan-card plan-featured"><span class="plan-duration">60 DIAS</span><h3>Bimestral</h3><div class="plan-price">R$ 60<span>,00</span></div><p>Acesso por 2 meses</p><button class="plan-button" data-plan="bimestral">Escolher plano</button></article>
+          <article class="plan-card"><span class="plan-duration">180 DIAS</span><h3>Semestral</h3><div class="plan-price">R$ 180<span>,00</span></div><p>Acesso por 6 meses</p><button class="plan-button" data-plan="semestral">Escolher plano</button></article>
+        </div>
+        <div class="secure-note"><span>✦</span><div><b>Pagamento sujeito à confirmação</b><small>O acesso é liberado após a verificação do pagamento.</small></div></div>
+      </aside>
+    </div>
+    <footer class="auth-footer">© 2026 IAFlix · Todos os direitos reservados</footer>
+  </section>
+
+  <section class="payment-shell" id="paymentShell" hidden>
+    <div class="payment-top"><a class="brand" href="#"><span class="brand-mark">✦</span> IA<span>Flix</span></a><span class="eyebrow">FINALIZAR ASSINATURA</span></div>
+    <div class="payment-card">
+      <button class="back-auth" id="backToAuth">← Voltar</button>
+      <span class="eyebrow">QUASE LÁ!</span><h1>Confirme seu <em>pagamento</em></h1>
+      <p class="payment-lead">Plano selecionado: <b id="checkoutPlan">Mensal</b></p>
+      <div class="checkout-price" id="checkoutPrice">R$ 10,00</div>
+      <div class="qr-frame"><img src="img/codigo-informado-qr.png" alt="QR Code contendo o identificador informado"><span>QR CODE DO IDENTIFICADOR</span></div>
+      <p class="qr-warning"><b>Atenção:</b> este QR Code contém o identificador que você forneceu. Ele não é um QR PIX confirmado e não deve ser usado como comprovante de pagamento.</p>
+      <div class="payment-code"><span>Identificador informado</span><code id="paymentIdentifier">4bff2916-8ef2-4048-b0ef-5725143d5381</code><button id="copyPaymentCode" type="button">Copiar código</button></div>
+      <button class="primary-btn payment-confirm" id="paymentConfirm" type="button">Já realizei o pagamento <span>→</span></button>
+      <p class="payment-status" id="paymentStatus" aria-live="polite">O acesso só será liberado após confirmação manual ou integração com um provedor de pagamentos.</p>
+    </div>
+  </section>
+
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#" aria-label="IAFlix início"><span class="brand-mark">✦</span> IA<span>Flix</span></a>
+    <nav class="main-nav" aria-label="Menu principal">
+      <button class="nav-link active" data-page="home"><span>⌂</span> Início</button>
+      <button class="nav-link" data-page="genres"><span>▦</span> Gêneros</button>
+      <button class="nav-link" data-page="favorites"><span>♡</span> Favoritos</button>
+      <button class="nav-link" data-page="profile"><span>◉</span> Perfil</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="side-note"><span class="spark">✦</span><b>Um universo de criatividade</b><p>Explore vídeos incríveis criados com inteligência artificial.</p></div>
+      <small>© 2026 IAFlix</small>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="mobile-menu" id="mobileMenu" aria-label="Abrir menu">☰</button>
+      <div class="breadcrumb" id="breadcrumb">Descubra vídeos</div>
+      <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Buscar vídeos, canais..." aria-label="Buscar vídeos"></label>
+      <button class="avatar top-avatar" data-page="profile" aria-label="Abrir perfil">D</button>
+    </header>
+
+    <section class="page active" id="homePage">
+      <section class="hero">
+        <div class="hero-content">
+          <span class="eyebrow"><i></i> EXPERIÊNCIAS CRIADAS COM IA</span>
+          <h1>O futuro do vídeo<br><em>começa aqui.</em></h1>
+          <p>Histórias, animações e mundos extraordinários criados por inteligência artificial.</p>
+          <button class="primary-btn" id="exploreBtn">Explorar vídeos <span>→</span></button>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orb orb-one"></div><div class="orb orb-two"></div>
+          <div class="play-glass">▶</div><div class="art-label">IMAGINE. CRIE. ASSISTA.</div>
+        </div>
+      </section>
+
+      <div class="section-heading">
+        <div><span class="eyebrow">SELEÇÃO IAFLIX</span><h2>Em destaque</h2></div>
+        <button class="text-btn" id="seeAllBtn">Ver todos <span>→</span></button>
+      </div>
+      <div class="video-grid" id="homeGrid"></div>
+      <div class="section-heading lower-heading"><div><span class="eyebrow">CONTINUE EXPLORANDO</span><h2>Novidades</h2></div></div>
+      <div class="video-grid" id="newGrid"></div>
+    </section>
+
+    <section class="page" id="genresPage">
+      <div class="page-intro"><span class="eyebrow">ENCONTRE SEU ESTILO</span><h1>Explore por <em>gênero</em></h1><p>Escolha uma categoria e descubra novos vídeos.</p></div>
+      <div class="genre-chips" id="genreChips"></div>
+      <div class="section-heading"><div><h2 id="genreTitle">Todos os vídeos</h2><p class="muted" id="genreCount"></p></div></div>
+      <div class="video-grid" id="genreGrid"></div>
+    </section>
+
+    <section class="page" id="favoritesPage">
+      <div class="page-intro"><span class="eyebrow">SUA COLEÇÃO</span><h1>Meus <em>favoritos</em></h1><p>Os vídeos que você marcou com o coração ficam guardados aqui.</p></div>
+      <div class="section-heading"><div><h2>Vídeos salvos</h2><p class="muted" id="favoritesCount"></p></div></div>
+      <div class="video-grid" id="favoritesGrid"></div>
+    </section>
+
+    <section class="page" id="profilePage">
+      <div class="page-intro"><span class="eyebrow">SUA ÁREA</span><h1>Meu <em>perfil</em></h1><p>Personalize sua experiência no IAFlix.</p></div>
+      <div class="profile-card">
+        <div class="profile-avatar" id="profileInitial">D</div>
+        <div class="profile-info"><h2 id="profileNameView">Visitante</h2><p>Membro IAFlix</p></div>
+        <span class="profile-badge">✦ Conta local</span>
+      </div>
+      <form class="profile-form" id="profileForm">
+        <h3>Informações do perfil</h3>
+        <label>Seu nome<input id="nameInput" maxlength="32" placeholder="Digite seu nome"></label>
+        <label>Descrição<textarea id="bioInput" rows="3" maxlength="140" placeholder="Conte um pouco sobre você..."></textarea></label>
+        <button class="primary-btn" type="submit">Salvar perfil <span>✓</span></button>
+        <p class="form-message" id="profileMessage" aria-live="polite"></p>
+      </form>
+      <button class="logout-btn" id="logoutBtn" type="button">Sair da conta</button>
+      <div class="profile-extra"><h3>Sobre o IAFlix</h3><p>Uma interface de demonstração para organizar e assistir vídeos criados com inteligência artificial. Seus dados de perfil ficam salvos neste navegador.</p></div>
+    </section>
+  </main>
+
+  <div class="player-modal" id="playerModal" aria-hidden="true">
+    <div class="player-dialog">
+      <button class="close-player" id="closePlayer" aria-label="Fechar vídeo">×</button>
+      <div class="player-screen" id="playerScreen">
+        <video id="mainVideo" playsinline preload="metadata"></video>
+        <div class="video-empty" id="videoEmpty"><span>▶</span><p>Adicione um arquivo MP4 ao vídeo para começar a assistir.</p></div>
+        <div class="media-controls" id="mediaControls">
+          <button class="control-btn" id="playPauseBtn" aria-label="Reproduzir ou pausar">▶</button>
+          <span class="time-label" id="currentTime">0:00</span>
+          <input class="seek-bar" id="seekBar" type="range" min="0" max="100" value="0" aria-label="Progresso do vídeo">
+          <span class="time-label" id="durationTime">0:00</span>
+          <button class="control-btn" id="volumeBtn" aria-label="Ativar ou silenciar áudio">🔊</button>
+          <input class="volume-bar" id="volumeBar" type="range" min="0" max="1" step="0.05" value="1" aria-label="Volume">
+          <button class="control-btn" id="fullscreenBtn" aria-label="Tela cheia">⛶</button>
+        </div>
+      </div>
+      <div class="player-details"><div><span class="eyebrow">ASSISTINDO NO IAFLIX</span><h2 id="playerTitle">Título do vídeo</h2><p id="playerMeta"></p></div><button class="save-btn" id="saveVideoBtn">♡ <span>Favoritar</span></button></div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>
